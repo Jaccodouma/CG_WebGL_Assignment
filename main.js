@@ -73,6 +73,18 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/chimney.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -1.77504; 
+	  obj.position.z = 0.492233; 
+	  
+	  obj.rotation.y = THREE.Math.degToRad(90);
+	}
+);
+
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
 
