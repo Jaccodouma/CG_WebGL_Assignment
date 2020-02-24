@@ -26,6 +26,52 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/cupboard.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 0.398793; 
+	  obj.position.z = 1.69392; 
+	  
+	  obj.rotation.y = THREE.Math.degToRad(180);
+	}
+);
+
+objLoader.load(
+	"models/tv.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 0.396517; 
+	  obj.position.z = 1.618; 
+	  obj.position.y = 1;
+	  
+	  obj.rotation.y = THREE.Math.degToRad(180);
+	}
+);
+
+objLoader.load(
+	"models/desk.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -0.624001; 
+	  obj.position.z = 1.5851; 
+	}
+);
+
+objLoader.load(
+	"models/shelves.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -1.63318; 
+	  obj.position.z = 1.48885; 
+	  
+	  obj.rotation.y = THREE.Math.degToRad(90);
+	}
+);
 
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
