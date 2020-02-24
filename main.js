@@ -13,10 +13,6 @@ var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-var material = new THREE.MeshPhongMaterial({ color: 0xcccccc, side: THREE.DoubleSide });
-
-material = new THREE.MeshNormalMaterial();
-
 var objLoader = new THREE.ObjectLoader();
 
 objLoader.load(
@@ -92,6 +88,29 @@ objLoader.load(
 
 	  obj.position.x = -0.853212; 
 	  obj.position.z = -0.890586; 
+	}
+);
+
+objLoader.load(
+	"models/mattress.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -0.853212; 
+	  obj.position.z = -0.890585; 
+	  obj.position.y = 0.464277;
+	}
+);
+
+objLoader.load(
+	"models/table.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 0.30847; 
+	  obj.position.z = -1.43734; 
+	  
+	  obj.rotation.y = THREE.Math.degToRad(9.333);
 	}
 );
 
