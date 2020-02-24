@@ -19,6 +19,13 @@ material = new THREE.MeshNormalMaterial();
 
 var objLoader = new THREE.ObjectLoader();
 
+objLoader.load(
+	"models/room.json",
+	function ( obj ) {
+		scene.add( obj );
+	}
+);
+
 
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
