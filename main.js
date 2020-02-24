@@ -85,6 +85,16 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/bedframe.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -0.853212; 
+	  obj.position.z = -0.890586; 
+	}
+);
+
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
 
