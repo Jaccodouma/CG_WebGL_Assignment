@@ -114,6 +114,31 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/bin.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 2.07835; 
+	  obj.position.z = 0.113945;
+
+	  obj.rotation.y = THREE.Math.degToRad(204);
+	}
+);
+
+objLoader.load(
+	"models/clock.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 1.7029; 
+	  obj.position.z = -1.95009;
+	  obj.position.y = 1.69322;
+
+	  obj.rotation.x = THREE.Math.degToRad(90);
+	}
+);
+
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
 
