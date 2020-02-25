@@ -151,6 +151,43 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/fridge.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 2.79242; 
+	  obj.position.z = -0.67923;
+
+	  obj.rotation.y = THREE.Math.degToRad(270);
+	}
+);
+
+objLoader.load(
+	"models/cabinets.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 2.88982; 
+	  obj.position.z = -1.15619;
+	  obj.position.y = 1.53193;
+
+	  obj.rotation.y = THREE.Math.degToRad(270);
+	}
+);
+
+objLoader.load(
+	"models/couch.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 1.37328; 
+	  obj.position.z = -1.18505;
+
+	  obj.rotation.y = THREE.Math.degToRad(270);
+	}
+);
+
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
 
