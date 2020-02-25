@@ -8,6 +8,7 @@ var camera = new THREE.PerspectiveCamera(
 	0.1, // near — Camera frustum near plane.
 	5000); // far — Camera frustum far plane. 
 
+
 // Create renderer
 var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -213,15 +214,13 @@ rimLight.position.set( -20, 80, -80 );
 scene.add( rimLight );
 
 // move camera from center
-camera.position.x = 0;
-camera.position.y = 3;
-camera.position.z = 10;
+camera.position.x = 1;
+camera.position.y = 1.7;
+camera.position.z = 1;
 
 // import camera control and rotation library
 controls = new THREE.OrbitControls( camera ); 
-// controls.autoRotate = true;
-// controls.autoRotateSpeed = 2;
-// controls.noKeys = true;
+controls.target = new THREE.Vector3(0,1,0);
 
 var render = function () {
    requestAnimationFrame(render);
