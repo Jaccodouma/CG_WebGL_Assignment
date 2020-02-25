@@ -139,6 +139,18 @@ objLoader.load(
 	}
 );
 
+objLoader.load(
+	"models/kitchen_cabinet.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 2.8; 
+	  obj.position.z = -1.45;
+
+	  obj.rotation.y = THREE.Math.degToRad(270);
+	}
+);
+
 // var ambient = new THREE.AmbientLight( 0x404040 );
 // scene.add( ambient );
 
