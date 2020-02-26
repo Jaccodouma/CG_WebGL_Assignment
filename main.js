@@ -1,3 +1,7 @@
+//Create Raycaster and mouse
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+
 // Create scene
 var scene = new THREE.Scene();
 
@@ -201,5 +205,21 @@ var render = function () {
    renderer.render(scene, camera);
 };
 
+
+//Interacting with models through raycaster
+function onMouseClick(event){
+	event.preventDefault();
+
+	mouse.x =  (event.clientX / window.innerWidth) * 2 -1;
+	mouse.y =  -(event.clientY / window.innerHeight) * 2 +1;
+
+	raycaster.setFromCamera(mouse,camera);
+
+	var intersects = raycaster.intersectObjects(scene.children, true);
+	
+	intersects[0].object.material.color.set(Math.random() * 0xFFFFFF);
+}
+
 render();
+window.addEventListener("click", onMouseClick);
 
