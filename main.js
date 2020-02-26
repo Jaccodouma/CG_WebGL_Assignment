@@ -214,10 +214,12 @@ function onMouseClick(event){
 	mouse.y =  -(event.clientY / window.innerHeight) * 2 +1;
 
 	raycaster.setFromCamera(mouse,camera);
-
+	this.tl =  new TimelineMax();
 	var intersects = raycaster.intersectObjects(scene.children, true);
-	
 	intersects[0].object.material.color.set(Math.random() * 0xFFFFFF);
+
+	this.tl.to(intersects[0].object.rotation, 1, {x: Math.PI *2});
+
 }
 
 render();
