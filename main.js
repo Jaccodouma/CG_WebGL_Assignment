@@ -207,6 +207,7 @@ var render = function () {
 
 
 //Interacting with models through raycaster
+//TODO somehow only animates ones
 function onMouseClick(event){
 	event.preventDefault();
 
@@ -214,11 +215,22 @@ function onMouseClick(event){
 	mouse.y =  -(event.clientY / window.innerHeight) * 2 +1;
 
 	raycaster.setFromCamera(mouse,camera);
-	this.tl =  new TimelineMax();
+	this.tl =  new TimelineMax({
+		//Perhaps future properties
+	});
 	var intersects = raycaster.intersectObjects(scene.children, true);
-	intersects[0].object.material.color.set(Math.random() * 0xFFFFFF);
-
-	this.tl.to(intersects[0].object.rotation, 1, {x: Math.PI *2});
+	if(intersects[0].object.id == 20)
+	{
+		console.log("even het matras flippen hoor");
+		this.tl.to(intersects[0].object.rotation, 1, {x: Math.PI *1});
+	}else if(intersects[0].object.id == 31)
+	{
+		console.log("even het bed flippen hoor");
+		this.tl.to(intersects[0].object.rotation, 1, {y: Math.PI *2});
+	} else 
+	{
+		console.log(intersects[0].object.name + "-" + intersects[0].object.id + " is nog niet afgevangen als animatie");
+	}
 
 }
 
