@@ -131,29 +131,59 @@ models.forEach(element => {
 	);
 });
 
-// var ambient = new THREE.AmbientLight( 0x403030 );
-// scene.add( ambient );
+// SKYBOX
+var directions  = ["posx.jpg", "negx.jpg", "posy.jpg", "negy.jpg", "posz.jpg", "negz.jpg"];
+var skybox = "Sorsele3";
+var materialArray = [];
+for (var i = 0; i < 6; i++)
+{
+   materialArray.push(
+      new THREE.MeshBasicMaterial({
+         map: THREE.ImageUtils.loadTexture( "skybox/" + skybox + "/" + directions[i]),
+         side: THREE.BackSide})
+   );
+}
+	
+var skyGeometry = new THREE.CubeGeometry( 500, 500, 500 );	
+var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
+var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
+scene.add( skyBox );
+
+// Ambient light
+var ambient = new THREE.AmbientLight( 0x302a1c );
+scene.add( ambient );
+
+// Main light 
+var mainLight = new THREE.PointLight( 0xebcb86, 0.5, 15, 2);
+
+mainLight.position.x = 0.474563;
+mainLight.position.y = 2.20716;
+
+scene.add ( mainLight );
+
+mainLightHelper = new THREE.PointLightHelper( mainLight, 15);
+scene.add( mainLightHelper );
 
 // directional - KEY LIGHT
-keyLight = new THREE.DirectionalLight( 0xdddddd, .7 );
-keyLight.position.set( -80, 60, 80 );
-scene.add( keyLight );
+// keyLight = new THREE.DirectionalLight( 0xdddddd, .7 );
+// keyLight.position.set( -80, 60, 80 );
+// scene.add( keyLight );
 
-keyLightHelper = new THREE.DirectionalLightHelper( keyLight, 15 );
-scene.add( keyLightHelper );
+// keyLightHelper = new THREE.DirectionalLightHelper( keyLight, 15 );
+// scene.add( keyLightHelper );
 
-// directional - FILL LIGHT
-fillLight = new THREE.DirectionalLight( 0xdddddd, .3 );
-fillLight.position.set( 80, 40, 40 );
-scene.add( fillLight );
+// // directional - FILL LIGHT
+// fillLight = new THREE.DirectionalLight( 0xdddddd, .3 );
+// fillLight.position.set( 80, 40, 40 );
+// scene.add( fillLight );
 
-fillLightHelper = new THREE.DirectionalLightHelper( fillLight, 15 );
-scene.add( fillLightHelper );
+// fillLightHelper = new THREE.DirectionalLightHelper( fillLight, 15 );
+// scene.add( fillLightHelper );
 
-// directional - RIM LIGHT
-rimLight = new THREE.DirectionalLight( 0xdddddd, .6 );
-rimLight.position.set( -20, 80, -80 );
-scene.add( rimLight );
+// // directional - RIM LIGHT
+// rimLight = new THREE.DirectionalLight( 0xdddddd, .6 );
+// rimLight.position.set( -20, 80, -80 );
+// scene.add( rimLight );
 
 // move camera from center
 camera.position.x = 1;
