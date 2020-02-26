@@ -109,7 +109,7 @@ objLoader.load(
 	  scene.add( obj );
 
 	  obj.position.x = 0.30847; 
-	  obj.position.z = -1.43734; 
+	  obj.position.z = -0.86573; 
 	  
 	  obj.rotation.y = THREE.Math.degToRad(9.333);
 	}
@@ -185,6 +185,44 @@ objLoader.load(
 	  obj.position.x = 1.37328; 
 	  obj.position.z = -1.18505;
 
+	  obj.rotation.y = THREE.Math.degToRad(270);
+	}
+);
+
+objLoader.load(
+	"models/door.json",
+	function ( obj ) {
+	  scene.add( obj );
+	}
+);
+
+objLoader.load(
+	"models/windows.json",
+	function ( obj ) {
+	  scene.add( obj );
+	}
+);
+
+objLoader.load(
+	"models/shelves_2.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = -1.79182; 
+	  obj.position.z = -0.317944; 
+	  
+	  obj.rotation.y = THREE.Math.degToRad(90);
+	}
+);
+
+objLoader.load(
+	"models/radiator.json",
+	function ( obj ) {
+	  scene.add( obj );
+
+	  obj.position.x = 1.81458; 
+	  obj.position.z = 0.765988; 
+	  
 	  obj.rotation.y = THREE.Math.degToRad(270);
 	}
 );
