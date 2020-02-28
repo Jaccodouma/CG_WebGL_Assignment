@@ -20,7 +20,7 @@ document.body.appendChild(renderer.domElement);
 
 var objLoader = new THREE.ObjectLoader();
 
-let tl = new TimelineMax();
+let tl = new TimelineMax(); // Timeline object for animations
 
 //Making window responsive
 window.addEventListener("resize", () => {
@@ -144,6 +144,7 @@ var stringLights = [
 	{ pos: [2.052334, 1.221306, 0.353917] }
 ];
 
+/* models array with file, position, rotation and animation if available */
 var models = [
 	{
 		file: "room_walls",
@@ -382,6 +383,9 @@ var models = [
 	}
 ]
 
+// Array with models with animation function
+let animatedModels = []; 
+
 // Load in models
 for (let i = 0; i < models.length; i++) {
 	let element = models[i];
@@ -397,11 +401,10 @@ for (let i = 0; i < models.length; i++) {
 			obj.rotation.z = THREE.Math.degToRad(element.rotation[1]);
 			obj.rotation.y = THREE.Math.degToRad(element.rotation[2]);
 
-			element.id = obj.id;
-		},
-		undefined,
-		function (error) {
-			console.error(error);
+			if (element.animation) {
+				element.id = obj.id; // Add id property so we can find this in onMouseClick
+				animatedModels.push(element); // Add to animatedModels array
+			}
 		}
 	);
 }
@@ -416,9 +419,6 @@ for (let i = 0; i < stringLights.length; i++) {
 		newLight.position.y = element.pos[1];
 		newLight.position.z = element.pos[2];
 		scene.add(newLight);
-
-		// var pointLightHelper = new THREE.PointLightHelper( newLight, 0.2 );
-		// scene.add( pointLightHelper );
 	}
 }
 
@@ -476,7 +476,6 @@ var render = function () {
 };
 
 //Interacting with models through raycaster
-//TODO somehow only animates ones
 function onMouseClick(event) {
 	event.preventDefault();
 
@@ -484,15 +483,14 @@ function onMouseClick(event) {
 	mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
 	raycaster.setFromCamera(mouse, camera);
-	this.tl = new TimelineMax({
-		//Perhaps future properties
-	});
-	var intersects = raycaster.intersectObjects(scene.children, true);
+	this.tl = new TimelineMax({});
+	var intersects = raycaster.intersectObjects(scene.children, true); // TODO: maybe only check for animated models
 
 	let object = intersects[0].object; // Get clicked object
-	let model = models.find(element => element.id == object.id); // Get right element in the models array
+	let model = animatedModels.find(element => element.id == object.id); // Get element in the animatedModels array
 
-	if (model && model.animation) {
+	// execute animation if we found a model
+	if (model) {
 		model.animation(object, model);
 	}
 }
