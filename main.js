@@ -289,7 +289,7 @@ var models = [
 	},
 	{
 		file: "fridge_door",
-		position: [2.79242,-0.67923,0],
+		position: [2.5804,-0.921352,0],
 		rotation: [0,0,270],
 		animation: function (object, model) {
 			object.material.color.set(Math.random() * 0xFFFFFF);

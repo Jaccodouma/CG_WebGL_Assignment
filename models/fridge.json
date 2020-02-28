@@ -6,7 +6,7 @@
 	},
 	"geometries": [
 		{
-			"uuid": "96EC465D-B7E0-4A9E-83FD-59F57EEF5FF3",
+			"uuid": "1287EDC7-2772-45EA-B074-6BA7DEB91ACC",
 			"type": "BufferGeometry",
 			"data": {
 				"attributes": {
@@ -37,7 +37,7 @@
 		}],
 	"materials": [
 		{
-			"uuid": "86171438-028C-4607-9352-7ADCAE4B69F8",
+			"uuid": "437C4C70-B080-4F93-95DE-FD049A314919",
 			"type": "MeshPhongMaterial",
 			"name": "None",
 			"color": 16777215,
@@ -58,12 +58,12 @@
 			"stencilZPass": 7680
 		}],
 	"object": {
-		"uuid": "0EBCC20E-BC4D-4D1D-80AB-0A09AA70C14A",
+		"uuid": "4B425288-6ECC-4A7D-98F0-D0D0FDA16E7B",
 		"type": "Mesh",
 		"name": "Fridge_Cube.008",
 		"layers": 1,
 		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
-		"geometry": "96EC465D-B7E0-4A9E-83FD-59F57EEF5FF3",
-		"material": "86171438-028C-4607-9352-7ADCAE4B69F8"
+		"geometry": "1287EDC7-2772-45EA-B074-6BA7DEB91ACC",
+		"material": "437C4C70-B080-4F93-95DE-FD049A314919"
 	}
 }
