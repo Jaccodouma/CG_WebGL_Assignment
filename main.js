@@ -266,9 +266,33 @@ var models = [
 		rotation: [0,0,270]
 	},
 	{
+		file: "fridge_door",
+		position: [2.79242,-0.67923,0],
+		rotation: [0,0,270],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
+	},
+	{
 		file: "cabinets",
 		position: [2.88982,-1.15619,1.53193],
 		rotation: [0,0,270]
+	},
+	{
+		file: "cabinets_door_left",
+		position: [2.88982,-1.15619,1.53193],
+		rotation: [0,0,270],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
+	},
+	{
+		file: "cabinets_door_right",
+		position: [2.88982,-1.15619,1.53193],
+		rotation: [0,0,270],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "couch",
