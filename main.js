@@ -20,6 +20,7 @@ document.body.appendChild(renderer.domElement);
 
 var objLoader = new THREE.ObjectLoader();
 
+// Array of stringlight positions (In objects in case we want more info about them later, i.e. to turn them off etc)
 var stringLights = [
 	{pos:[1.463667,1.334372,-1.900873]},
 	{pos:[1.462143,1.393427,-1.902423]},
@@ -134,12 +135,42 @@ var stringLights = [
 
 var models = [
 	{
-		file: "room",
+		file: "room_walls",
+		position: [0,0,0],
+		rotation: [0,0,0]
+	},
+	{
+		file: "room_floor",
+		position: [0,0,0],
+		rotation: [0,0,0]
+	},
+	{
+		file: "room_ceiling",
 		position: [0,0,0],
 		rotation: [0,0,0]
 	},
 	{
 		file: "cupboard",
+		position: [0.398793,1.69392,0],
+		rotation: [0,0,180]
+	},
+	{
+		file: "cupboard_drawer0",
+		position: [0.398793,1.69392,0],
+		rotation: [0,0,180]
+	},
+	{
+		file: "cupboard_drawer1",
+		position: [0.398793,1.69392,0],
+		rotation: [0,0,180]
+	},
+	{
+		file: "cupboard_drawer2",
+		position: [0.398793,1.69392,0],
+		rotation: [0,0,180]
+	},
+	{
+		file: "cupboard_drawer3",
 		position: [0.398793,1.69392,0],
 		rotation: [0,0,180]
 	},
@@ -169,13 +200,18 @@ var models = [
 		rotation: [0,0,0]
 	},
 	{
+		file: "bedframe_drawer",
+		position: [-0.853212,-0.890585,0],
+		rotation: [0,0,0]
+	},
+	{
 		file: "mattress",
 		position: [-0.853212,-0.890585,0.464277],
 		rotation: [0,0,0]
 	},
 	{
 		file: "table",
-		position: [0.30847,-0.86573,0],
+		position: [0.30847,-1.26573,0],
 		rotation: [0,0,9.333]
 	},
 	{
@@ -190,6 +226,16 @@ var models = [
 	},
 	{
 		file: "kitchen_cabinet",
+		position: [2.8,-1.45,0],
+		rotation: [0,0,270]
+	},
+	{
+		file: "kitchen_cabinet_door_left",
+		position: [2.8,-1.45,0],
+		rotation: [0,0,270]
+	},
+	{
+		file: "kitchen_cabinet_door_right",
 		position: [2.8,-1.45,0],
 		rotation: [0,0,270]
 	},
@@ -254,6 +300,8 @@ for (let i=0; i<models.length; i++) {
 			obj.rotation.x = THREE.Math.degToRad(element.rotation[0]);
 			obj.rotation.z = THREE.Math.degToRad(element.rotation[1]);
 			obj.rotation.y = THREE.Math.degToRad(element.rotation[2]);
+
+			element.id = obj.id;
 		}
 	);
 }
@@ -273,17 +321,17 @@ for (let i=0; i<stringLights.length; i++) {
 	}
 }
 
-// SKYBOX
+// Skybox from the examples (Some errors in console with this, look at it later)
 var directions  = ["posx.jpg", "negx.jpg", "posy.jpg", "negy.jpg", "posz.jpg", "negz.jpg"];
 var skybox = "Sorsele3";
 var materialArray = [];
 for (var i = 0; i < 6; i++)
 {
-   materialArray.push(
-      new THREE.MeshBasicMaterial({
-         map: THREE.ImageUtils.loadTexture( "skybox/" + skybox + "/" + directions[i]),
-         side: THREE.BackSide})
-   );
+	materialArray.push(
+		new THREE.MeshBasicMaterial({
+			map: THREE.ImageUtils.loadTexture( "skybox/" + skybox + "/" + directions[i]),
+			side: THREE.BackSide})
+	);
 }
 	
 var skyGeometry = new THREE.CubeGeometry( 500, 500, 500 );	
