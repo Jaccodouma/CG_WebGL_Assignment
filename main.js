@@ -157,22 +157,34 @@ var models = [
 	{
 		file: "cupboard_drawer0",
 		position: [0.398793,1.69392,0],
-		rotation: [0,0,180]
+		rotation: [0,0,180],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "cupboard_drawer1",
 		position: [0.398793,1.69392,0],
-		rotation: [0,0,180]
+		rotation: [0,0,180],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "cupboard_drawer2",
 		position: [0.398793,1.69392,0],
-		rotation: [0,0,180]
+		rotation: [0,0,180],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "cupboard_drawer3",
 		position: [0.398793,1.69392,0],
-		rotation: [0,0,180]
+		rotation: [0,0,180],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "tv",
@@ -202,7 +214,10 @@ var models = [
 	{
 		file: "bedframe_drawer",
 		position: [-0.853212,-0.890585,0],
-		rotation: [0,0,0]
+		rotation: [0,0,0],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "mattress",
@@ -232,12 +247,18 @@ var models = [
 	{
 		file: "kitchen_cabinet_door_left",
 		position: [2.8,-1.45,0],
-		rotation: [0,0,270]
+		rotation: [0,0,270],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "kitchen_cabinet_door_right",
 		position: [2.8,-1.45,0],
-		rotation: [0,0,270]
+		rotation: [0,0,270],
+		animation: function (object, model) {
+			object.material.color.set(Math.random() * 0xFFFFFF);
+		}
 	},
 	{
 		file: "fridge",
@@ -379,19 +400,13 @@ function onMouseClick(event){
 		//Perhaps future properties
 	});
 	var intersects = raycaster.intersectObjects(scene.children, true);
-	if(intersects[0].object.id == 20)
-	{
-		console.log("even het matras flippen hoor");
-		this.tl.to(intersects[0].object.rotation, 1, {x: Math.PI *1});
-	}else if(intersects[0].object.id == 31)
-	{
-		console.log("even het bed flippen hoor");
-		this.tl.to(intersects[0].object.rotation, 1, {y: Math.PI *2});
-	} else 
-	{
-		console.log(intersects[0].object.name + "-" + intersects[0].object.id + " is nog niet afgevangen als animatie");
-	}
 
+	let object = intersects[0].object; // Get clicked object
+	let model = models.find(element => element.id == object.id); // Get right element in the models array
+
+	if (model && model.animation) {
+		model.animation(object, model);
+	}
 }
 
 render();
