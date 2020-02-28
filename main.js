@@ -277,18 +277,26 @@ var models = [
 	},
 	{
 		file: "kitchen_cabinet_door_left",
-		position: [2.8, -1.45, 0],
+		position: [2.56972, -1.93, 0],
 		rotation: [0, 0, 270],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
+			} else {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2] - 45) });
+			}
 		}
 	},
 	{
 		file: "kitchen_cabinet_door_right",
-		position: [2.8, -1.45, 0],
+		position: [2.56972, -0.97, 0],
 		rotation: [0, 0, 270],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
+			} else {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2] + 45) });
+			}
 		}
 	},
 	{
