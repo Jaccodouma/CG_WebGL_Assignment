@@ -315,18 +315,26 @@ var models = [
 	},
 	{
 		file: "cabinets_door_left",
-		position: [2.88982, -1.15619, 1.53193],
+		position: [2.71982, -1.88619, 1.53193],
 		rotation: [0, 0, 270],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
+			} else {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2] - 65) });
+			}
 		}
 	},
 	{
 		file: "cabinets_door_right",
-		position: [2.88982, -1.15619, 1.53193],
+		position: [2.71982, -0.426214, 1.53193],
 		rotation: [0, 0, 270],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
+			} else {
+				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2] + 65) });
+			}
 		}
 	},
 	{
