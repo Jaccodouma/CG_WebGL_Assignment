@@ -234,7 +234,11 @@ var models = [
 		position: [-0.853212,-0.890585,0],
 		rotation: [0,0,0],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (model.position[0] != object.position.x) {
+				tl.to(object.position, 0.5, {x:model.position[0]});
+			} else {
+				tl.to(object.position, 0.5, {x:model.position[0]+0.3});
+			}
 		}
 	},
 	{
