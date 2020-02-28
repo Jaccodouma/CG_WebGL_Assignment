@@ -20,6 +20,8 @@ document.body.appendChild(renderer.domElement);
 
 var objLoader = new THREE.ObjectLoader();
 
+let tl = new TimelineMax();
+
 // Array of stringlight positions (In objects in case we want more info about them later, i.e. to turn them off etc)
 var stringLights = [
 	{pos:[1.463667,1.334372,-1.900873]},
@@ -159,7 +161,11 @@ var models = [
 		position: [0.398793,1.69392,0],
 		rotation: [0,0,180],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (model.position[1] != object.position.z) {
+				tl.to(object.position, 0.5, {z:model.position[1]});
+			} else {
+				tl.to(object.position, 0.5, {z:model.position[1]-0.2});
+			}
 		}
 	},
 	{
@@ -167,7 +173,11 @@ var models = [
 		position: [0.398793,1.69392,0],
 		rotation: [0,0,180],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (model.position[1] != object.position.z) {
+				tl.to(object.position, 0.5, {z:model.position[1]});
+			} else {
+				tl.to(object.position, 0.5, {z:model.position[1]-0.2});
+			}
 		}
 	},
 	{
@@ -175,7 +185,11 @@ var models = [
 		position: [0.398793,1.69392,0],
 		rotation: [0,0,180],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (model.position[1] != object.position.z) {
+				tl.to(object.position, 0.5, {z:model.position[1]});
+			} else {
+				tl.to(object.position, 0.5, {z:model.position[1]-0.2});
+			}
 		}
 	},
 	{
@@ -183,7 +197,11 @@ var models = [
 		position: [0.398793,1.69392,0],
 		rotation: [0,0,180],
 		animation: function (object, model) {
-			object.material.color.set(Math.random() * 0xFFFFFF);
+			if (model.position[1] != object.position.z) {
+				tl.to(object.position, 0.5, {z:model.position[1]});
+			} else {
+				tl.to(object.position, 0.5, {z:model.position[1]-0.2});
+			}
 		}
 	},
 	{
