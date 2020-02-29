@@ -157,7 +157,7 @@ var models = [
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xFFFFFF
+			color: 0xF2F2F2
 		}),
 		receiveS: true,
 		castS: true,
@@ -171,7 +171,7 @@ var models = [
 		file: "room_floor",
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],material: new THREE.MeshLambertMaterial({
-			color: 0x000000
+			color: 0xFFFFFF
 		}),
 		receiveS: true,
 		castS: true,
@@ -186,7 +186,7 @@ var models = [
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
 		material: new THREE.MeshLambertMaterial({
-			color: 0x000000
+			color: 0xFFFFFF
 		}),
 		receiveS: true,
 		castS: true,
@@ -201,7 +201,7 @@ var models = [
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xA0522D
+			color: 0xFFFFFF
 		}),
 		receiveS: true,
 		castS: true,
@@ -216,7 +216,7 @@ var models = [
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xA0522D
+			color: 0xAAAAAA
 		}),
 		receiveS: true,
 		castS: true,
@@ -238,7 +238,7 @@ var models = [
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xA0522D
+			color: 0xAAAAAA
 		}),
 		receiveS: true,
 		castS: true,
@@ -260,7 +260,7 @@ var models = [
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xA0522D
+			color: 0xAAAAAA
 		}),
 		receiveS: true,
 		castS: true,
@@ -282,7 +282,7 @@ var models = [
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
 		material: new THREE.MeshLambertMaterial({
-			color: 0xA0522D
+			color: 0xAAAAAA
 		}),
 		receiveS: true,
 		castS: true,
@@ -318,8 +318,8 @@ var models = [
 		file: "chimney",
 		position: [-1.77504, 0.492233, 0],
 		rotation: [0, 0, 90],
-		material: new THREE.MeshPhongMaterial({
-			color: 0xF2F2F2
+		material: new THREE.MeshStandardMaterial({
+			color: 0xFFFFFF
 		}),
 		receiveS: true,
 		castS: true,
@@ -332,12 +332,32 @@ var models = [
 	{
 		file: "bedframe",
 		position: [-0.853212, -0.890585, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "bedframe_drawer",
 		position: [-0.853212, -0.890585, 0],
 		rotation: [0, 0, 0],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (model.position[0] != object.position.x) {
 				tl.to(object.position, 0.5, { x: model.position[0] });
@@ -350,7 +370,7 @@ var models = [
 		file: "mattress",
 		position: [-0.853212, -0.890585, 0.464277],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshPhongMaterial({
+		material: new THREE.MeshStandardMaterial({
 			color: 0xFFFFFF
 		}),
 		receiveS: true,
@@ -366,7 +386,17 @@ var models = [
 	{
 		file: "table",
 		position: [0.30847, -1.26573, 0],
-		rotation: [0, 0, 9.333]
+		rotation: [0, 0, 9.333],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "bin",
@@ -381,12 +411,32 @@ var models = [
 	{
 		file: "kitchen_cabinet",
 		position: [2.8, -1.45, 0],
-		rotation: [0, 0, 270]
+		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "kitchen_cabinet_door_left",
 		position: [2.56972, -1.93, 0],
 		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
 				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
@@ -399,6 +449,16 @@ var models = [
 		file: "kitchen_cabinet_door_right",
 		position: [2.56972, -0.97, 0],
 		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
 				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
@@ -427,12 +487,32 @@ var models = [
 	{
 		file: "cabinets",
 		position: [2.88982, -1.15619, 1.53193],
-		rotation: [0, 0, 270]
+		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "cabinets_door_left",
 		position: [2.71982, -1.88619, 1.53193],
 		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
 				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
@@ -445,6 +525,16 @@ var models = [
 		file: "cabinets_door_right",
 		position: [2.71982, -0.426214, 1.53193],
 		rotation: [0, 0, 270],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
 				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
@@ -457,8 +547,8 @@ var models = [
 		file: "couch",
 		position: [1.37328, -1.18505, 0],
 		rotation: [0, 0, 270],
-		material: new THREE.MeshPhongMaterial({
-			color: 0x000000
+		material: new THREE.MeshStandardMaterial({
+			color: 0xFFFFFF
 		}),
 		receiveS: true,
 		castS: true,
@@ -472,7 +562,7 @@ var models = [
 		file: "door",
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshPhongMaterial({
+		material: new THREE.MeshStandardMaterial({
 			color: 0xFFFFFF
 		}),
 		receiveS: true,
@@ -535,15 +625,15 @@ for (let i = 0; i < models.length; i++) {
 				obj.material.castShadow = element.castS;
 
 				obj.material.normalMap = element.normMap;
-				obj.material.displacementMap = element.roughMap;
-				obj.material.emissiveMap = element.roughMap;
-				obj.material.alphaMap = element.dispMap;
+				obj.material.displacementMap = element.dispMap;
+				obj.material.roughnessMap = element.roughMap;
 				obj.material.aoMap = element.occMap;
 				obj.material.map = element.colorMap;
 
 
 
 				obj.material.displacementScale = 0;
+				obj.material.roughness = 1;
 
 			}
 
