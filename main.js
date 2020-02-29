@@ -149,7 +149,8 @@ var models = [
 	{
 		file: "room_walls",
 		position: [0, 0, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshPhongMaterial({color: 0xFF0000})
 	},
 	{
 		file: "room_floor",
@@ -400,6 +401,10 @@ for (let i = 0; i < models.length; i++) {
 			obj.rotation.x = THREE.Math.degToRad(element.rotation[0]);
 			obj.rotation.z = THREE.Math.degToRad(element.rotation[1]);
 			obj.rotation.y = THREE.Math.degToRad(element.rotation[2]);
+
+			if (element.material) {
+				obj.material = element.material; 
+			}
 
 			if (element.animation) {
 				element.id = obj.id; // Add id property so we can find this in onMouseClick
