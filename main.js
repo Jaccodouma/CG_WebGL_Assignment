@@ -19,6 +19,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 var objLoader = new THREE.ObjectLoader();
+var textLoader = new THREE.TextureLoader();
 
 let tl = new TimelineMax(); // Timeline object for animations
 
@@ -150,27 +151,75 @@ var models = [
 		file: "room_walls",
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshPhongMaterial({color: 0xFF0000})
+		material: new THREE.MeshLambertMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_OCC.jpg"),
+		normMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_NORM.jpg"),
+		dispMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_DISP.png"),
+		colorMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_COLOR.jpg"),
+		roughMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_ROUGH.jpg")
 	},
 	{
 		file: "room_floor",
 		position: [0, 0, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],material: new THREE.MeshLambertMaterial({
+			color: 0x000000
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Rug_003_SD/Rug_003_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Rug_003_SD/Rug_003_normal.jpg"),
+		dispMap: new textLoader.load("Rug_003_SD/Rug_003_basecolor.jpg"),
+		colorMap: new textLoader.load("Rug_003_SD/Rug_003_basecolor.jpg"),
+		roughMap: new textLoader.load("Rug_003_SD/Rug_003_roughness.jpg"),
 	},
 	{
 		file: "room_ceiling",
 		position: [0, 0, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshLambertMaterial({
+			color: 0x000000
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_OCC.jpg"),
+		normMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_NORM.jpg"),
+		dispMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_DISP.png"),
+		colorMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_COLOR.jpg"),
+		roughMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_ROUGH.jpg"),
 	},
 	{
 		file: "cupboard",
 		position: [0.398793, 1.69392, 0],
-		rotation: [0, 0, 180]
+		rotation: [0, 0, 180],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xA0522D
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "cupboard_drawer0",
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xA0522D
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (model.position[1] != object.position.z) {
 				tl.to(object.position, 0.5, { z: model.position[1] });
@@ -183,6 +232,16 @@ var models = [
 		file: "cupboard_drawer1",
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xA0522D
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (model.position[1] != object.position.z) {
 				tl.to(object.position, 0.5, { z: model.position[1] });
@@ -195,6 +254,16 @@ var models = [
 		file: "cupboard_drawer2",
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xA0522D
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (model.position[1] != object.position.z) {
 				tl.to(object.position, 0.5, { z: model.position[1] });
@@ -207,6 +276,16 @@ var models = [
 		file: "cupboard_drawer3",
 		position: [0.398793, 1.69392, 0],
 		rotation: [0, 0, 180],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xA0522D
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 		animation: function (object, model) {
 			if (model.position[1] != object.position.z) {
 				tl.to(object.position, 0.5, { z: model.position[1] });
@@ -233,7 +312,17 @@ var models = [
 	{
 		file: "chimney",
 		position: [-1.77504, 0.492233, 0],
-		rotation: [0, 0, 90]
+		rotation: [0, 0, 90],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xF2F2F2
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_OCC.jpg"),
+		normMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_NORM.jpg"),
+		dispMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_DISP.png"),
+		colorMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_COLOR.jpg"),
+		roughMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_ROUGH.jpg"),
 	},
 	{
 		file: "bedframe",
@@ -255,7 +344,19 @@ var models = [
 	{
 		file: "mattress",
 		position: [-0.853212, -0.890585, 0.464277],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Fabric_011_SD/Fabric_011_OCC.jpg"),
+		normMap: new textLoader.load("Fabric_011_SD/Fabric_011_NORM.jpg"),
+		dispMap: new textLoader.load("Fabric_011_SD/Fabric_011_DISP.png"),
+		colorMap: new textLoader.load("Fabric_011_SD/Fabric_011_COLOR.jpg"),
+		roughMap: new textLoader.load("Fabric_011_SD/Fabric_011_ROUGH.jpg"),
+	
+		
 	},
 	{
 		file: "table",
@@ -350,12 +451,32 @@ var models = [
 	{
 		file: "couch",
 		position: [1.37328, -1.18505, 0],
-		rotation: [0, 0, 270]
+		rotation: [0, 0, 270],
+		material: new THREE.MeshPhongMaterial({
+			color: 0x000000
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Fabric_Lace_002a_SD/Lace_002_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Fabric_Lace_002a_SD/Lace_002_normal.jpg"),
+		dispMap: new textLoader.load("Fabric_Lace_002a_SD/Lace_002_Mask.jpg"),
+		colorMap: new textLoader.load("Fabric_Lace_002a_SD/Lace_002_basecolor.jpg"),
+		roughMap: new textLoader.load("Fabric_Lace_002a_SD/Lace_002_roughness.jpg"),
 	},
 	{
 		file: "door",
 		position: [0, 0, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wallpaper_Woodchip_001_SD/Wallpaper_Woodchip_001_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wallpaper_Woodchip_001_SD/Wallpaper_Woodchip_001_normal.jpg"),
+		dispMap: new textLoader.load("Wallpaper_Woodchip_001_SD/Wallpaper_Woodchip_001_height.png"),
+		colorMap: new textLoader.load("Wallpaper_Woodchip_001_SD/Wallpaper_Woodchip_001_basecolor.jpg"),
+		roughMap: new textLoader.load("Wallpaper_Woodchip_001_SD/Wallpaper_Woodchip_001_roughness.jpg")
 	},
 	{
 		file: "windows",
@@ -403,7 +524,22 @@ for (let i = 0; i < models.length; i++) {
 			obj.rotation.y = THREE.Math.degToRad(element.rotation[2]);
 
 			if (element.material) {
+
 				obj.material = element.material; 
+				obj.material.receiveShadow = element.receiveS;
+				obj.material.castShadow = element.castS;
+
+				obj.material.normalMap = element.normMap;
+				obj.material.displacementMap = element.roughMap;
+				obj.material.emissiveMap = element.roughMap;
+				obj.material.alphaMap = element.dispMap;
+				obj.material.aoMap = element.occMap;
+				obj.material.map = element.colorMap;
+
+
+
+				obj.material.displacementScale = 0;
+
 			}
 
 			if (element.animation) {
