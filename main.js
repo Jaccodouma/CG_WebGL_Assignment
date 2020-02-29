@@ -619,18 +619,16 @@ for (let i = 0; i < models.length; i++) {
 			obj.rotation.y = THREE.Math.degToRad(element.rotation[2]);
 
 			if (element.material) {
-
 				obj.material = element.material; 
-				obj.material.receiveShadow = element.receiveS;
-				obj.material.castShadow = element.castS;
 
-				obj.material.normalMap = element.normMap;
-				obj.material.displacementMap = element.dispMap;
-				obj.material.roughnessMap = element.roughMap;
-				obj.material.aoMap = element.occMap;
-				obj.material.map = element.colorMap;
+				if (element.receiveS) obj.material.receiveShadow = element.receiveS;
+				if (element.castS) obj.material.castShadow = element.castS;
 
-
+				if (element.normMap) obj.material.normalMap = element.normMap;
+				if (element.dispMap) obj.material.displacementMap = element.dispMap;
+				if (element.roughMap) obj.material.roughnessMap = element.roughMap;
+				if (element.occMap) obj.material.aoMap = element.occMap;
+				if (element.colorMap) obj.material.map = element.colorMap;
 
 				obj.material.displacementScale = 0;
 				obj.material.roughness = 1;
