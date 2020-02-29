@@ -145,6 +145,11 @@ var stringLights = [
 	{ pos: [2.052334, 1.221306, 0.353917] }
 ];
 
+let materials = {
+	glass: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.7, refractionRatio: 0.8 }),
+	glassPane: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.3, refractionRatio: 0.8 })
+}
+
 /* models array with file, position, rotation and animation if available */
 var models = [
 	{
@@ -562,6 +567,51 @@ for (let i = 0; i < stringLights.length; i++) {
 		scene.add(newLight);
 	}
 }
+
+
+// Basic shapes array
+let basicShapes = [
+	// GLASS 1
+	{
+		geometry: new THREE.CylinderGeometry(0.04, 0.03, 0.1, 32),
+		material: materials.glass,
+		position: [0.114268,-1.41448,0.49],
+		rotation: [0,0,0]
+	},
+
+	// GLASS 2
+	{
+		geometry: new THREE.CylinderGeometry(0.04, 0.03, 0.1, 32),
+		material: materials.glass,
+		position: [0.508462,-1.37304,0.49],
+		rotation: [0,0,0]
+	},
+
+	// GLASS 3
+	{
+		geometry: new THREE.CylinderGeometry(0.04, 0.03, 0.1, 32),
+		material: materials.glass,
+		position: [0.147359,-1.32291,0.49],
+		rotation: [0,0,0]
+	},
+
+	// Window pane 
+	{
+		geometry: new THREE.PlaneGeometry( 1, 1.4, 1 ),
+		material: materials.glassPane,
+		position: [0.675,-2.02498,1.2],
+		rotation: [90,0,0]
+	}
+];
+
+// Add basic shapes 
+basicShapes.forEach(element => {
+	var shape = new THREE.Mesh(element.geometry, element.material);
+	shape.position.set(element.position[0], element.position[2], element.position[1]);
+	scene.add(shape);
+});
+
+
 
 // Skybox from the examples (Some errors in console with this, look at it later)
 var directions = [
