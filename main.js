@@ -146,8 +146,8 @@ var stringLights = [
 ];
 
 let materials = {
-	glass: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.7, refractionRatio: 0.8 }),
-	glassPane: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.3, refractionRatio: 0.8 })
+	glass: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.5, refractionRatio: 0.8, color: 0xFF0000 }),
+	glassPane: new THREE.MeshPhongMaterial({ shininess: 100, specular: 0xFFFFFF, transparent: true, opacity: 0.3, refractionRatio: 0.8 }),
 }
 
 /* models array with file, position, rotation and animation if available */
@@ -156,7 +156,7 @@ var models = [
 		file: "room_walls",
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshLambertMaterial({
+		material: new THREE.MeshPhongMaterial({
 			color: 0xF2F2F2
 		}),
 		receiveS: true,
@@ -302,7 +302,8 @@ var models = [
 	{
 		file: "tv",
 		position: [0.396517, 1.618, 1],
-		rotation: [0, 0, 180]
+		rotation: [0, 0, 180],
+		material: new THREE.MeshPhongMaterial({color: 0x222222})
 	},
 	{
 		file: "desk",
@@ -318,8 +319,8 @@ var models = [
 		file: "chimney",
 		position: [-1.77504, 0.492233, 0],
 		rotation: [0, 0, 90],
-		material: new THREE.MeshStandardMaterial({
-			color: 0xFFFFFF
+		material: new THREE.MeshPhongMaterial({
+			color: 0xF2F2F2
 		}),
 		receiveS: true,
 		castS: true,
@@ -327,7 +328,7 @@ var models = [
 		normMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_NORM.jpg"),
 		dispMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_DISP.png"),
 		colorMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_COLOR.jpg"),
-		roughMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_ROUGH.jpg"),
+		roughMap: new textLoader.load("Plaster_Rough_001_SD/Plaster_Rough_001_ROUGH.jpg")
 	},
 	{
 		file: "bedframe",
@@ -370,18 +371,9 @@ var models = [
 		file: "mattress",
 		position: [-0.853212, -0.890585, 0.464277],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshStandardMaterial({
+		material: new THREE.MeshLambertMaterial({
 			color: 0xFFFFFF
 		}),
-		receiveS: true,
-		castS: true,
-		occMap: new textLoader.load("Fabric_011_SD/Fabric_011_OCC.jpg"),
-		normMap: new textLoader.load("Fabric_011_SD/Fabric_011_NORM.jpg"),
-		dispMap: new textLoader.load("Fabric_011_SD/Fabric_011_DISP.png"),
-		colorMap: new textLoader.load("Fabric_011_SD/Fabric_011_COLOR.jpg"),
-		roughMap: new textLoader.load("Fabric_011_SD/Fabric_011_ROUGH.jpg"),
-	
-		
 	},
 	{
 		file: "table",
@@ -401,7 +393,10 @@ var models = [
 	{
 		file: "bin",
 		position: [2.07835, 0.113945, 0],
-		rotation: [0, 0, 204]
+		rotation: [0, 0, 204],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xEEEEEE
+		}),
 	},
 	{
 		file: "clock",
@@ -470,12 +465,22 @@ var models = [
 	{
 		file: "fridge",
 		position: [2.79242, -0.67923, 0],
-		rotation: [0, 0, 270]
+		rotation: [0, 0, 270],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_OCC.jpg"),
+		normMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_NORM.jpg"),
 	},
 	{
 		file: "fridge_door",
 		position: [2.5804, -0.921352, 0],
 		rotation: [0, 0, 270],
+		material: new THREE.MeshStandardMaterial({
+			color: 0xAAAAAA
+		}),
 		animation: function (object, model) {
 			if (THREE.Math.degToRad(model.rotation[2]) != object.rotation.y) {
 				tl.to(object.rotation, 0.5, { y: THREE.Math.degToRad(model.rotation[2]) });
@@ -547,7 +552,7 @@ var models = [
 		file: "couch",
 		position: [1.37328, -1.18505, 0],
 		rotation: [0, 0, 270],
-		material: new THREE.MeshStandardMaterial({
+		material: new THREE.MeshLambertMaterial({
 			color: 0xFFFFFF
 		}),
 		receiveS: true,
@@ -562,7 +567,7 @@ var models = [
 		file: "door",
 		position: [0, 0, 0],
 		rotation: [0, 0, 0],
-		material: new THREE.MeshStandardMaterial({
+		material: new THREE.MeshLambertMaterial({
 			color: 0xFFFFFF
 		}),
 		receiveS: true,
@@ -576,17 +581,41 @@ var models = [
 	{
 		file: "windows",
 		position: [0, 0, 0],
-		rotation: [0, 0, 0]
+		rotation: [0, 0, 0],
+		material: new THREE.MeshLambertMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Wood_011a_SD/Wood_011_ambientOcclusion.jpg"),
+		normMap: new textLoader.load("Wood_011a_SD/Wood_011_Normal.jpg"),
+		dispMap: new textLoader.load("Wood_011a_SD/Wood_011_Height.png"),
+		colorMap: new textLoader.load("Wood_011a_SD/Wood_011_Base_Color.jpg"),
+		roughMap: new textLoader.load("Wood_011a_SD/Wood_011_Roughness.jpg"),
 	},
 	{
 		file: "shelves_2",
 		position: [-1.79182, -0.317944, 0],
-		rotation: [0, 0, 90]
+		rotation: [0, 0, 90],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_OCC.jpg"),
+		normMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_NORM.jpg"),
 	},
 	{
 		file: "radiator",
 		position: [1.81458, 0.765988, 0],
-		rotation: [0, 0, 270]
+		rotation: [0, 0, 270],
+		material: new THREE.MeshPhongMaterial({
+			color: 0xFFFFFF
+		}),
+		receiveS: true,
+		castS: true,
+		occMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_OCC.jpg"),
+		normMap: new textLoader.load("Gun_Metal_Scratched_001_SD/Gun_Metal_Scratched_001_NORM.jpg"),
 	},
 	{
 		file: "stringlights_string",
@@ -688,15 +717,116 @@ let basicShapes = [
 		geometry: new THREE.PlaneGeometry( 1, 1.4, 1 ),
 		material: materials.glassPane,
 		position: [0.675,-2.02498,1.2],
-		rotation: [90,0,0]
+		rotation: [0,0,0]
+	},
+	//cheese
+	{
+		geometry: new THREE.BoxGeometry( 0.2, 0.1, 0.1 ),
+		material: new THREE.MeshLambertMaterial({color: 0xFFFFFF}), //FFE57C
+		position: [2.79242, -0.67923, 0.1],
+		rotation: [THREE.Math.degToRad(90),THREE.Math.degToRad(90),0],
+		map: new textLoader.load("Fridge/cheese01.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//vegetable eggplant
+	{
+		geometry: new THREE.CylinderGeometry(0.04, 0.03, 0.2, 32),
+		material: new THREE.MeshLambertMaterial({color: 0x800080}),
+		position: [2.79242, -0.67923, 0.4],
+		rotation: [THREE.Math.degToRad(90),THREE.Math.degToRad(45),0],
+		reflect: 1,
+		map: new textLoader.load("Fridge/Eggplant.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//vegetable carrot
+	{
+		geometry: new THREE.ConeGeometry(0.02, 0.1, 0.018),
+		material: new THREE.MeshLambertMaterial({color: 0xFF4500}),
+		position: [2.63242, -0.57923, 0.86],
+		rotation: [THREE.Math.degToRad(100),0,0],
+		map: new textLoader.load("Fridge/carrot	.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//vegetable carrot
+	{
+		geometry: new THREE.ConeGeometry(0.02, 0.1, 0.018),
+		material: new THREE.MeshLambertMaterial({color: 0xFF4500}),
+		position: [2.644242, -0.6923, 0.86],
+		rotation: [THREE.Math.degToRad(0),THREE.Math.degToRad(100),THREE.Math.degToRad(0)],
+		map: new textLoader.load("Fridge/carrot	.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//vegetable carrot
+	{
+		geometry: new THREE.ConeGeometry(0.02, 0.1, 0.018),
+		material: new THREE.MeshLambertMaterial({color: 0xFF4500}),
+		position: [2.72242, -0.47923, 0.86],
+		rotation: [THREE.Math.degToRad(100),0,0],
+		map: new textLoader.load("Fridge/carrot	.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//vegetable cucumber
+	{
+		geometry: new THREE.CylinderGeometry(0.02, 0.02, 0.3, 64),
+		material: new THREE.MeshLambertMaterial({color: 0x00FF00}),
+		position: [2.79242, -0.67923, 0.65],
+		rotation: [THREE.Math.degToRad(90),0,0],
+		map: new textLoader.load("Fridge/cucumber.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//cuttingboard
+	{
+		geometry: new THREE.BoxGeometry( .2, .02, .2 ),
+		material: new THREE.MeshLambertMaterial({color: 0xFFFFFF}), //FFE57C
+		position: [3.00842, -0.67923, 0.93],
+		rotation: [0,THREE.Math.degToRad(75),0],
+		map: new textLoader.load("Fridge/cuttingboard.jpg"),
+		receiveS: true,
+		castS: true
+	},
+	//keyboard
+	{
+		geometry: new THREE.BoxGeometry( .4, .01, .2 ),
+		material: new THREE.MeshPhongMaterial({color: 0xFFFFFF}), //FFE57C
+		position: [-0.624001, 1.5851, 0.73],
+		rotation: [0,0,0],
+		map: new textLoader.load("Fridge/keyboard.png"),
+		receiveS: true,
+		castS: true
+	},
+	//mouse
+	{
+		geometry: new THREE.BoxGeometry( .06, .03, .04 ),
+		material: new THREE.MeshPhongMaterial({color: 0x000000}), //FFE57C
+		position: [-0.924001, 1.5851, 0.73],
+		rotation: [0,0,THREE.Math.degToRad(90)],
+		receiveS: true,
+		castS: true
 	}
+	
 ];
+
+var fridgeLight = new THREE.PointLight( 0xff0000, 1, 0.5 );
+fridgeLight.position.set(2.79242, -0.67923, 0.3);
+var pointLightHelper = new THREE.PointLightHelper( fridgeLight, 1 );
+scene.add(fridgeLight);
 
 // Add basic shapes 
 basicShapes.forEach(element => {
 	var shape = new THREE.Mesh(element.geometry, element.material);
-	shape.position.set(element.position[0], element.position[2], element.position[1]);
+	if(element.position) shape.position.set(element.position[0], element.position[2], element.position[1]);
+	if(element.rotation)shape.rotation.set(element.rotation[0], element.rotation[2], element.rotation[1]) ;
 	scene.add(shape);
+	if(element.reflect) shape.reflectivity = element.reflect;
+	if(element.map) shape.material.map = element.map;
+	if (element.receiveS) shape.material.receiveShadow = element.receiveS;
+	if (element.castS) shape.material.castShadow = element.castS;
 });
 
 
@@ -776,3 +906,4 @@ function onMouseClick(event) {
 
 render();
 window.addEventListener("click", onMouseClick);
+
