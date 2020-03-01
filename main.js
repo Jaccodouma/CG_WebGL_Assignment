@@ -733,7 +733,7 @@ let basicShapes = [
 	{
 		geometry: new THREE.CylinderGeometry(0.04, 0.03, 0.2, 32),
 		material: new THREE.MeshLambertMaterial({color: 0x800080}),
-		position: [2.79242, -0.67923, 0.4],
+		position: [2.79242, -0.67923, 0.42],
 		rotation: [THREE.Math.degToRad(90),THREE.Math.degToRad(45),0],
 		reflect: 1,
 		map: new textLoader.load("Fridge/Eggplant.jpg"),
@@ -774,7 +774,7 @@ let basicShapes = [
 	{
 		geometry: new THREE.CylinderGeometry(0.02, 0.02, 0.3, 64),
 		material: new THREE.MeshLambertMaterial({color: 0x00FF00}),
-		position: [2.79242, -0.67923, 0.65],
+		position: [2.79242, -0.67923, 0.625],
 		rotation: [THREE.Math.degToRad(90),0,0],
 		map: new textLoader.load("Fridge/cucumber.jpg"),
 		receiveS: true,
